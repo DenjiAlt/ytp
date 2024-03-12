@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaking Logan Paul</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Set a background color for better visibility */
+        }
+
+        .ass {
+            width: 50%; /* Adjust the width as needed */
+            height: 60%; /* Adjust the height as needed */
+            margin-bottom: 150px; /* Adjust the bottom margin as needed */
+            border-radius: 15px;
+        }
+
+        .title {
+            position: absolute;
+            margin-top: 25%;
+            font-size: 150%;
+            margin-right: 30%;
+            left: 25%;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+        }
+
+        .ytp {
+            position: absolute;
+            height: 20%;
+            margin-right: 85%;
+            margin-bottom: 40%;
+        }
+
+        .channelname {
+            position: absolute;
+            margin-top: 29.5%;
+            font-size: 100%;
+            margin-right: 38.5%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .pfp {
+            position: absolute;
+            height: 4%;
+            margin-top: 30%;
+            margin-right: 47%;
+        }
+
+        .subs {
+            position: absolute;
+            margin-top: 31%;
+            font-size: 80%;
+            margin-right: 40.5%;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #a5a5a5;
+        }
+
+        .butt {
+            position: absolute;
+            height: 5%;
+            width: 10%;
+            margin-top: 28%;
+            margin-left: 35%;
+            cursor: pointer;
+        }
+
+        .buttimage {
+            position: absolute;
+            height: 130%;
+            width: 110%;
+            right: -5%;
+            top: -10%;
+            filter: grayscale(0); /* Initially set to 0 (no grayscale) */
+        }
+
+        .share-button {
+            position: absolute;
+            height: 5%;
+            width: 2.5%;
+            margin-top: 28%;
+            margin-left: 4%;
+            cursor: pointer;
+        }
+        .share {
+            position: absolute;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            right: 0%;
+            top: 0%;
+        }
+        .like-button {
+            position: absolute;
+            height: 0%;
+            width: 0%;
+            margin-top: 29%;
+            margin-left: 14%;
+            cursor: pointer;
+        }
+        .like-png {
+            position: absolute;
+            height: 2500%;
+            width: 350%;
+            right: -100%;
+            top: -2000%;
+        }
+        .dislike-button {
+            position: absolute;
+            height: 0%;
+            width: 0%;
+            margin-top: 28%;
+            margin-left: 20%;
+            cursor: pointer;
+        }
+        .dislike-png {
+            position: absolute;
+            height: 2500%;
+            width: 350%;
+            right: -100%;
+            top: -1000%;
+            rotate: 180deg;
+        }
+        .d-letter {
+            visibility: hidden;
+            position: absolute;
+            z-index: 2;
+            color: #ffffff;
+            margin-left: 90%;
+            margin-top: -5%;
+            font-size: 160%;
+        }
+        .thumbnailblowout {
+            position: absolute;
+            right: 12.6%;
+            height: 13%;
+            top: 13%;
+            border-radius: 10px;
+        }
+        .blowoutbutton {
+            position: absolute;
+            margin-bottom: 30.5%;
+            margin-left: 73%;
+            width: 22%;
+            background-color: transparent;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+            border: 0;
+            height: 14%;
+            cursor: pointer;
+        }
+        .blowouttitle {
+            position: absolute;
+            margin-top: -33%;
+            font-size: 80%;
+            width: 10%;
+            left: 87.7%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        let isSubscribed = false;
+        let isLiked = false;
+        let isDisliked = false;
+
+        function toggleSubscription() {
+            isSubscribed = !isSubscribed;
+            const image = document.querySelector('.buttimage');
+            image.style.filter = isSubscribed ? 'grayscale(1)' : 'grayscale(0)';
+            const subsText = document.querySelector('.subs');
+            subsText.textContent = isSubscribed ? '77 subscribers' : '76 subscribers';
+            if (isSubscribed) {
+                document.querySelector('.d-letter').style.visibility = 'visible';
+            }
+            if (!isSubscribed) {
+                document.querySelector('.d-letter').style.visibility = 'hidden';
+            }
+        }
+
+        function copyToClipboard() {
+            const dummyElement = document.createElement('textarea');
+            dummyElement.value = 'https://denjialt.github.io/ytp/'; // Replace with the actual site's address
+            document.body.appendChild(dummyElement);
+            dummyElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummyElement);
+
+            alert('Site address copied to clipboard!');
+        }
+        function like() {
+            isLiked =!isLiked;
+            isDisliked = false;
+            const image = document.querySelector('.like-png');
+            const disliked = document.querySelector('.dislike-png');
+            image.style.filter = isLiked ? 'invert(20%) sepia(79%) saturate(7285%) hue-rotate(357deg) brightness(95%) contrast(116%)' : 'invert(0%) sepia(7%) saturate(0%) hue-rotate(285deg) brightness(105%) contrast(101%)';
+            disliked.style.filter = "invert(0%) sepia(7%) saturate(0%) hue-rotate(285deg) brightness(105%) contrast(101%)"
+        }
+        function dislike() {
+            isDisliked =!isDisliked;
+            isLiked = false;
+            const image = document.querySelector('.dislike-png');
+            const liked = document.querySelector('.like-png');
+            image.style.filter = isDisliked ? 'invert(20%) sepia(79%) saturate(7285%) hue-rotate(357deg) brightness(95%) contrast(116%)' : 'invert(0%) sepia(7%) saturate(0%) hue-rotate(285deg) brightness(105%) contrast(101%)';
+            liked.style.filter = "invert(0%) sepia(7%) saturate(0%) hue-rotate(285deg) brightness(105%) contrast(101%)"
+        }
+    </script>
+</head>
+<body>
+    <img src="logan misses the toilet.gif" alt="Shaking Logan Paul" class="ass" draggable="false"/>
+    <img src="ytp.png" class="ytp" draggable="false">
+    <div class="title">LOGAN PAUL MISSES THE TOILET AND MAKES A BIG MESS!! (GONE WRONG)</div>
+    <div class="channelname">Logan paul clips</div>
+    <img src="icon.png" class="pfp" draggable="false">
+    <div class="subs">76 subscribers</div>
+    <button onclick="toggleSubscription()" class="butt">
+        <div class="d-letter">d</div>
+        <img src="sub.png" class="buttimage" alt="Subscribe" draggable="false" />
+        
+    </button>
+    <button onclick="copyToClipboard()" class="share-button">
+        <img src="share.png"class="share"/>
+    </button>
+    <button onclick="like()" class="like-button">
+        <img src="like.png" class="like-png" draggable="false"/>
+    </button>
+    <button onclick="dislike()" class="dislike-button">
+        <img src="like.png" class="dislike-png" draggable="false"/>
+    </button>
+    <a href="https://denjialt.github.io/ytp/watch=uM64wr4tG.html" class="blowoutbutton"></a>
+    <b class="blowouttitle">LOGAN PAUL TWERKING!!
+        <div style="color: #a5a5a5; margin-top: 5%; width: 69%;">Logan paul clips</div>
+        <div style="color: #a5a5a5"> 107 views · 1 year ago</div>
+    </b>
+    <img src="twerk thumbnail.png" class="thumbnailblowout" draggable="false">
+</body>
+</html>
