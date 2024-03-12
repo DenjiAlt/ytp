@@ -154,6 +154,7 @@
             border: 0;
             height: 14%;
             cursor: pointer;
+            z-index: 50;
         }
         .blowouttitle {
             position: absolute;
@@ -185,7 +186,7 @@
 
         function copyToClipboard() {
             const dummyElement = document.createElement('textarea');
-            dummyElement.value = 'https://denjialt.github.io/ytp/'; // Replace with the actual site's address
+            dummyElement.value = 'https://denjialt.github.io/ytp/watch=uM64wr4tG.html'; // Replace with the actual site's address
             document.body.appendChild(dummyElement);
             dummyElement.select();
             document.execCommand('copy');
